@@ -64,10 +64,11 @@ async function getQoute() {
 
   // Function to share on Facebook
   function shareFacebook() {
-    var shareUrl = `https://www.facebook.com/sharer/sharer.php?t=${encodeURIComponent(authorText.textContent)}`;
+    var shareText = encodeURIComponent(authorText.textContent); // Get the text to share
+    var shareUrl = `https://www.facebook.com/sharer/sharer.php?quote=${shareText}`;
     window.open(shareUrl, '_blank');
     closePopup();
-  }
+}
 
   // Function to share on Twitter
   function shareTwitter() {
@@ -78,10 +79,20 @@ async function getQoute() {
 
   // Function to share on LinkedIn
   function shareLinkedIn() {
-    var shareUrl = "https://www.linkedin.com/shareArticle?url=" + encodeURIComponent(window.location.href);
+    var shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(qouteText.textContent)}&title=${encodeURIComponent(authorText.textContent)}`;
     window.open(shareUrl, '_blank');
     closePopup();
   }
+  function shareOnWhatsApp() {
+    const quoteText = document.getElementById("quote").textContent;
+    const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(qouteText.textContent)}`;
+    window.open(shareUrl, "_blank");
+}
+function shareOnTelegram() {
+    const quoteText = document.getElementById("quote").textContent;
+    const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(qouteText.textContent)}`;
+    window.open(shareUrl, "_blank");
+}
 
   // Function to close the popup dialog
   function closePopup() {
