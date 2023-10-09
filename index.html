@@ -19,12 +19,25 @@
             <span id="author"></span>
         </div>
         <!-- buttons -->
-        <div class="button-container">
+        <!-- <div class="button-container">
             <button class="twitter-button" id="twitter" title="Tweet This!">
                 <i class="fa-brands fa-x-twitter"  title="Post This On X!"></i>
-            </button>
-            <button id="new-qoute">New Qoute</button>
-        </div>
+            </button> -->
+
+            <div class="button-container">
+                <button  class="twitter-button" id="share" title="Tweet This!">
+                    <i class="fa-solid fa-share" title="Share this qoute!"></i></i>
+                </button>
+
+                <button id="new-qoute">New Qoute</button>
+            </div>
+            <div class="popup-dialog" id="popup">
+                <button onclick="closePopup()">Close</button>
+                <h2>Select a Social Media Platform to Share:</h2>
+                <button onclick="shareFacebook()">Facebook</button>
+                <button onclick="shareTwitter()">Twitter</button>
+                <button onclick="shareLinkedIn()">LinkedIn</button>
+             </div>
     </div>
     <!-- loader -->
     <div class="loader" id="loader"></div>
