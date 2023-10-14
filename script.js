@@ -1,9 +1,11 @@
-const qouteContainer = document.getElementById("qoute-container")
-const qouteText = document.getElementById("qoute")
-const authorText = document.getElementById("author")
-const shareBtn = document.getElementById("share")
-const newQouteBtn = document.getElementById("new-qoute")
-const loader = document.getElementById("loader")
+const qouteContainer = document.getElementById("qoute-container");
+const qouteText = document.getElementById("qoute");
+const authorText = document.getElementById("author");
+const shareBtn = document.getElementById("share");
+const newQouteBtn = document.getElementById("new-qoute");
+const loader = document.getElementById("loader");
+const popup = document.getElementById("popup");
+const copyButton = document.getElementById('copy-button');
 
 let data =[];
 
@@ -51,11 +53,6 @@ async function getQoute() {
     }
 }
 
-// x qoute
-// function xQoute (){
-//     const xUrl = `https://twitter.com/intent/tweet?text=${qouteText.textContent} - ${authorText.textContent}`;
-//     window.open(xUrl , '_blank');
-// }
 // set attribute function
  function setAttribute (elementId, attributes){
 for (const key in attributes) {
@@ -64,7 +61,6 @@ for (const key in attributes) {
  }
  // Function to open the share dialog
  function togglePopup() {
-    var popup = document.getElementById("popup");
     popup.style.display = (popup.style.display === "block") ? "none" : "block";
 
     let attributes = {
@@ -79,22 +75,25 @@ for (const key in attributes) {
     setAttribute("viber", attributes)
   }
 
-  // Function to share on Facebook
-  function shareFacebook() {
-    var shareText = encodeURIComponent(authorText.textContent); // Get the text to share
-    var shareUrl = `https://www.facebook.com/sharer/sharer.php?quote=${shareText}`;
-    window.open(shareUrl, '_blank');
-    closePopup();
-}
-
-  // Function to close the popup dialog
-  function closePopup() {
-    var popup = document.getElementById("popup");
+   // Function to close the popup dialog
+   function closePopup() {
     popup.style.display = "none";
   }
+
+  async function copy (){
+  try {
+    // Attempt to copy the selected text to the clipboard
+    let text = `${qouteText.textContent} - ${authorText.textContent}`
+    await navigator.clipboard.writeText(text)
+    alert('Text copied to clipboard');
+  } catch (err) {
+    console.error('Unable to copy to clipboard', err);
+  }
+  }
+
 // event lisener
 newQouteBtn.addEventListener('click',newQoute);
-// twitterBtn.addEventListener('click',xQoute);
 shareBtn.addEventListener('click', togglePopup);
+copyButton.addEventListener('click', copy);
 // onload
 getQoute();

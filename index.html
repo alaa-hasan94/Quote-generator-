@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qoute Generator</title>
+    <title>Quote Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
 
 </head>
 <body>
     <div class="qoute-container" id="qoute-container">
-        <!-- qoute -->
+        <!-- quote -->
         <div class="qoute-text">
             <i class="fa-solid fa-quote-left"></i>
             <span id="qoute"></span>
@@ -21,29 +20,28 @@
             <span id="author"></span>
         </div>
         <!-- buttons -->
-        <!-- <div class="button-container">
-            <button class="twitter-button" id="twitter" title="Tweet This!">
-                <i class="fa-brands fa-x-twitter"  title="Post This On X!"></i>
-            </button> -->
-
             <div class="button-container">
-                <button  class="twitter-button" id="share" title="Tweet This!">
+                <button  class="share-button" id="share" title="share the quote">
                     <i class="fa-solid fa-share" title="Share this qoute!"></i></i>
                 </button>
 
                 <button id="new-qoute">New Qoute</button>
             </div>
             <div class="popup-dialog" id="popup">
-                <button class="button" id="twitter" data-sharer="twitter">Share on Twitter</button>
-                <button class="button" id="facebook" data-sharer="facebook" >Share on Facebook</button>
-                <button class="button" id="whatsapp" data-sharer="whatsapp" >Share on Whatsapp</button>
-                <button class="button" id="telegram" data-sharer="telegram" >Share on Telegram</button>
-                <button class="button" id="viber" data-sharer="viber" >Share on Viber</button>
+                <button  class="button" id="close" onclick="closePopup()">Close</button>
+                <h2>Select a Social Media Platform to Share:</h2>
+                <button class="button" id="twitter" data-sharer="twitter">Twitter</button>
+                <button class="button" id="facebook" data-sharer="facebook" >Facebook</button>
+                <button class="button" id="whatsapp" data-sharer="whatsapp" >Whatsapp</button>
+                <button class="button" id="telegram" data-sharer="telegram" >Telegram</button>
+                <button class="button" id="viber" data-sharer="viber" >Viber</button>
+                <button class="button" id="copy-button">Copy to Clipboard</button>
              </div>
     </div>
     <!-- loader -->
     <div class="loader" id="loader"></div>
     <!-- script  -->
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
 </body>
 </html>

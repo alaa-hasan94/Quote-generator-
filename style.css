@@ -68,15 +68,18 @@ button:active {
     transform: translate(0, 0.3rem);
     box-shadow: 0 0,1rem rgba(255, 255, 255, 0.65);
 }
-.twitter-button:hover {
-   color: #000000;
-   background: #fbfbfb;
-}
-.fa-x-twitter {
-    font-size: 1.5rem;
-}
+
+
 .fa-share {
     font-size: 2rem;
+}
+#close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 1.5rem;
+    font-size: 0.7rem;
+    padding: 0.3rem;
 }
 /* loader */
 .loader {
@@ -87,7 +90,7 @@ button:active {
     height: 120px;
     animation: spin 2s linear infinite;
   }
-  
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -119,6 +122,9 @@ button:active {
     }
     .qoute-text {
         font-size: 2.5rem;
+    }
+    #copy-button {
+        height: 3.5rem;
     }
 }
 
