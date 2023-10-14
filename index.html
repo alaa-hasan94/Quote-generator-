@@ -6,6 +6,8 @@
     <title>Qoute Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+
 </head>
 <body>
     <div class="qoute-container" id="qoute-container">
@@ -32,13 +34,11 @@
                 <button id="new-qoute">New Qoute</button>
             </div>
             <div class="popup-dialog" id="popup">
-                <button onclick="closePopup()">Close</button>
-                <h2>Select a Social Media Platform to Share:</h2>
-                <button onclick="shareFacebook()">Facebook</button>
-                <button onclick="shareTwitter()">Twitter</button>
-                <button onclick="shareLinkedIn()">LinkedIn</button>
-                <button onclick="shareOnWhatsApp()">Whatsapp</button>
-                <button onclick="shareOnTelegram()">Telegram</button>
+                <button class="button" id="twitter" data-sharer="twitter">Share on Twitter</button>
+                <button class="button" id="facebook" data-sharer="facebook" >Share on Facebook</button>
+                <button class="button" id="whatsapp" data-sharer="whatsapp" >Share on Whatsapp</button>
+                <button class="button" id="telegram" data-sharer="telegram" >Share on Telegram</button>
+                <button class="button" id="viber" data-sharer="viber" >Share on Viber</button>
              </div>
     </div>
     <!-- loader -->

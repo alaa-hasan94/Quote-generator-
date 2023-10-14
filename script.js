@@ -41,9 +41,9 @@ complete()
 // get qoute from api
 async function getQoute() {
     loading()
-    const apiurl ="https://jacintodesign.github.io/quotes-api/data/quotes.json"
+    const apiUrl ="https://jacintodesign.github.io/quotes-api/data/quotes.json"
     try {
-        const response = await fetch (apiurl);
+        const response = await fetch (apiUrl);
         data = await response.json();
         newQoute();
     } catch (error) {
@@ -56,10 +56,27 @@ async function getQoute() {
 //     const xUrl = `https://twitter.com/intent/tweet?text=${qouteText.textContent} - ${authorText.textContent}`;
 //     window.open(xUrl , '_blank');
 // }
+// set attribute function
+ function setAttribute (elementId, attributes){
+for (const key in attributes) {
+  document.getElementById(elementId).setAttribute(key, attributes[key])
+}
+ }
  // Function to open the share dialog
  function togglePopup() {
     var popup = document.getElementById("popup");
     popup.style.display = (popup.style.display === "block") ? "none" : "block";
+
+    let attributes = {
+      "data-hashtags": authorText.textContent.replace(/[^a-z0-9]/gi,'_'),
+      "data-title": qouteText.textContent,
+      "data-url": "https://alaa-hasan94.github.io/Quote-generator-/",
+   }
+    setAttribute("twitter", attributes)
+    setAttribute("facebook", attributes)
+    setAttribute("whatsapp", attributes)
+    setAttribute("telegram", attributes)
+    setAttribute("viber", attributes)
   }
 
   // Function to share on Facebook
@@ -68,30 +85,6 @@ async function getQoute() {
     var shareUrl = `https://www.facebook.com/sharer/sharer.php?quote=${shareText}`;
     window.open(shareUrl, '_blank');
     closePopup();
-}
-
-  // Function to share on Twitter
-  function shareTwitter() {
-    var shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(qouteText.textContent)} - ${encodeURIComponent(authorText.textContent)}`;
-    window.open(shareUrl, '_blank');
-    closePopup();
-  }
-
-  // Function to share on LinkedIn
-  function shareLinkedIn() {
-    var shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(qouteText.textContent)}&title=${encodeURIComponent(authorText.textContent)}`;
-    window.open(shareUrl, '_blank');
-    closePopup();
-  }
-  function shareOnWhatsApp() {
-    const quoteText = document.getElementById("quote").textContent;
-    const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(qouteText.textContent)}`;
-    window.open(shareUrl, "_blank");
-}
-function shareOnTelegram() {
-    const quoteText = document.getElementById("quote").textContent;
-    const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(qouteText.textContent)}`;
-    window.open(shareUrl, "_blank");
 }
 
   // Function to close the popup dialog
